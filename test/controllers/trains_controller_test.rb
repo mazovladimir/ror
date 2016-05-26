@@ -18,7 +18,7 @@ class TrainsControllerTest < ActionController::TestCase
 
   test "should create train" do
     assert_difference('Train.count') do
-      post :create, train: {  }
+      post :create, train: { title: @train.title }
     end
 
     assert_redirected_to train_path(assigns(:train))
@@ -35,7 +35,7 @@ class TrainsControllerTest < ActionController::TestCase
   end
 
   test "should update train" do
-    patch :update, id: @train, train: {  }
+    patch :update, id: @train, train: { title: @train.title }
     assert_redirected_to train_path(assigns(:train))
   end
 

@@ -41,7 +41,7 @@ class TrainsController < ApplicationController
   # PATCH/PUT /trains/1.json
   def update
     respond_to do |format|
-      if @train.update(number)
+      if @train.update(train_params)
         format.html { redirect_to @train, notice: 'Train was successfully updated.' }
         format.json { render :show, status: :ok, location: @train }
       else
@@ -69,6 +69,6 @@ class TrainsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def train_params
-      params.fetch(:train, {})
+      params.require(:train).permit(:title)
     end
 end
