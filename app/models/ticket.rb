@@ -1,4 +1,4 @@
 class Ticket < ActiveRecord::Base
   has_many :users
-  belongs_to :train
+  has_many :trains
 end
