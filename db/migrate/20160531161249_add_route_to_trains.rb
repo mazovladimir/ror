@@ -1,5 +1,5 @@
 class AddRouteToTrains < ActiveRecord::Migration
   def change
-    add_belongs_to :routes, :train
+    add_belongs_to :trains, :route
   end
 end
