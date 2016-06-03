@@ -5,6 +5,12 @@
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
+
+  <div>
+    <%= f.label :current_station, "Current station" %>
+    <%= f.collection_select :current_station_id, RailwayStation.all, :id, :title %>
+  </div>  
+
   <div class="actions">
     <%= f.submit "#{@train.new_record? ? 'Create' : 'Change' }" %>
   </div>
