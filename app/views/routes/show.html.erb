@@ -2,7 +2,32 @@
   <strong>Title:</strong>
   <%= @route.title %>
 </p>
+
+<p>
+  <strong>Trains:</strong>
+  <% if @route.trains.exists? %>
+    <% @route.train_ids.each do |id| %>
+      <li>
+      <%= @route.trains.find(id).title %>
+      </li>
+    <% end %>
+  <% else %>
+    No Trains Found
+  <% end %>
+</p>
+
+<p>
+  <strong>Stations:</strong>
+  <% if @route.railway_stations.exists? %>
+    <% @route.railway_station_ids.each do |id| %>
+      <li>
+      <%= @route.railway_stations.find(id).title %>
+      </li>
+    <% end %>
+  <% else %>
+    No Stations Found
+  <% end %>
+</p>
  
 <%= link_to 'Edit', edit_route_path(@route) %> |
 <%= link_to 'Back', routes_path %>
-
