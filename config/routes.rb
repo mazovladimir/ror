@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :trains
   resources :routes
   resources :railway_stations
+  resources :vagons
+  resources :places
   get 'welcome/index'
   
   root 'welcome#index'

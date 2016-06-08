@@ -23,6 +23,53 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Has Vagons:</strong>
+  <% if @train.vagons.present? %>
+    <br>
+    Cupe:
+    <ul>
+    <li>
+    Count - 
+    <%= @train.vagons.where(title: 'cupe').size%>
+
+    <% @temp_cupe = @train.vagons.where(title: 'cupe')%>
+    <% @upcupe = 0 %>
+    <% @downcupe = 0 %>
+    <% @temp_cupe.each do |temp| %>
+      <% @upcupe += temp.up if !temp.up.nil? %>
+      <% @downcupe += temp.down if !temp.down.nil?  %>
+    <% end %>
+    UP Places - 
+    <%= @upcupe  %>
+    DOWN Places - 
+    <%= @downcupe %>
+    </li>
+    </ul>
+            
+
+    Plackart:
+    <ul>
+    <li>
+    Count:
+    <%= @train.vagons.where(title: 'plackart').size%>
+    <% @temp_plackart = @train.vagons.where(title: 'plackart')%>
+    <% @upplackart = 0 %>
+    <% @downplackart = 0 %>
+    <% @temp_plackart.each do |temp| %>
+      <% @upplackart += temp.up if !temp.up.nil? %>
+      <% @downplackart += temp.down if !temp.down.nil? %>
+    <% end %>
+    UP Places -
+    <%= @upplackart %>
+    DOWN Places -
+    <%= @downplackart %>
+    </li>
+    </ul>
+  <% else %>
+    Not set
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

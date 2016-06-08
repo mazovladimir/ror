@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @vagon.title %>
+</p>
+
+<p>
+  <strong>Connected to Train:</strong>
+  <% if @vagon.train.present? %>
+    <%= @vagon.train.title %>
+  <% else %>
+    Not set
+  <% end %>
+</p>
+
+<p>
+  <strong>Count of Places UP:</strong>
+  <% if @vagon.up.present? %>
+    <%= @vagon.up %>
+  <% else %>
+    Not set
+  <% end %>
+</p>
+
+<p>
+  <strong>Count of Places DOWN:</strong>
+  <% if @vagon.down.present? %>
+    <%= @vagon.down %>
+  <% else %>
+    Not set
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_vagon_path(@vagon) %> |
+<%= link_to 'Back', vagons_path %>
