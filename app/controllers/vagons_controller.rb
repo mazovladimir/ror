@@ -44,6 +44,6 @@ class VagonsController < ApplicationController
   end
 
   def vagon_params
-    params.require(:vagon).permit(:title, :train_id, :up, :down)
+    params.require(:vagon).permit(:vagon_type, :train_id, :up, :down)
   end
 end

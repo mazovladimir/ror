@@ -31,17 +31,9 @@
     <ul>
     <li>
     Count - 
-    <%= @train.vagons.where(title: 'cupe').size%>
-
-    <% @temp_cupe = @train.vagons.where(title: 'cupe')%>
-    <% @upcupe = 0 %>
-    <% @downcupe = 0 %>
-    <% @temp_cupe.each do |temp| %>
-      <% @upcupe += temp.up if !temp.up.nil? %>
-      <% @downcupe += temp.down if !temp.down.nil?  %>
-    <% end %>
+    <%= @train.vagons.where(vagon_type: 'cupe').size %>
     UP Places - 
-    <%= @upcupe  %>
+    <%= @upcupe %>
     DOWN Places - 
     <%= @downcupe %>
     </li>
@@ -52,14 +44,7 @@
     <ul>
     <li>
     Count:
-    <%= @train.vagons.where(title: 'plackart').size%>
-    <% @temp_plackart = @train.vagons.where(title: 'plackart')%>
-    <% @upplackart = 0 %>
-    <% @downplackart = 0 %>
-    <% @temp_plackart.each do |temp| %>
-      <% @upplackart += temp.up if !temp.up.nil? %>
-      <% @downplackart += temp.down if !temp.down.nil? %>
-    <% end %>
+    <%= @train.vagons.where(vagon_type: 'plackart').size %>
     UP Places -
     <%= @upplackart %>
     DOWN Places -

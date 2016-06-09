@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20160607211310) do
   end
 
   create_table "vagons", force: :cascade do |t|
-    t.string   "title"
+    t.string   "vagon_type"
     t.integer  "up"
     t.integer  "down"
     t.datetime "created_at"
