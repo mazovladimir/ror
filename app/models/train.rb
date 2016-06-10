@@ -5,8 +5,16 @@ class Train < ActiveRecord::Base
   has_many :vagons
   validates :title, presence: true
 
-  def upcupe(train)
-    temp_cupe = train.vagons.where(vagon_type: 'cupe')
+  def cupecount
+    vagons.where(vagon_type: 'cupe').size
+  end
+
+  def plackartcount
+    vagons.where(vagon_type: 'plackart').size
+  end
+
+  def upcupe
+    temp_cupe = vagons.where(vagon_type: 'cupe')
     upcupe = 0
     temp_cupe.each do |temp|
       upcupe += temp.up if !temp.up.nil?
@@ -14,8 +22,8 @@ class Train < ActiveRecord::Base
     return upcupe
   end
 
-  def downcupe(train)
-    temp_cupe = train.vagons.where(vagon_type: 'cupe')
+  def downcupe
+    temp_cupe = vagons.where(vagon_type: 'cupe')
     downcupe = 0
     temp_cupe.each do |temp|
       downcupe += temp.down if !temp.down.nil?
@@ -23,8 +31,8 @@ class Train < ActiveRecord::Base
     return downcupe
   end
 
- def upplackart(train)
-    temp_plackart = train.vagons.where(vagon_type: 'plackart')
+ def upplackart
+    temp_plackart = vagons.where(vagon_type: 'plackart')
     upplackart = 0
     temp_plackart.each do |temp|
       upplackart += temp.up if !temp.up.nil?
@@ -32,8 +40,8 @@ class Train < ActiveRecord::Base
     return upplackart
   end
 
- def downplackart(train)
-    temp_plackart = train.vagons.where(vagon_type: 'plackart')
+ def downplackart
+    temp_plackart = vagons.where(vagon_type: 'plackart')
     downplackart = 0
     temp_plackart.each do |temp|
       downplackart += temp.down if !temp.down.nil?
