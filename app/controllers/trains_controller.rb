@@ -6,6 +6,12 @@ class TrainsController < ApplicationController
   end
 
   def show
+    @cupecount = @train.cupecount
+    @plackartcount = @train.plackartcount
+    @upcupe = @train.upcupe
+    @downcupe = @train.downcupe
+    @upplackart = @train.upplackart
+    @downplackart = @train.downplackart
   end
 
   def new

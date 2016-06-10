@@ -11,12 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160603050808) do
-
-  create_table "add_user_to_tickets", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20160607211310) do
 
   create_table "railway_stations", force: :cascade do |t|
     t.string   "title"
@@ -57,6 +52,15 @@ ActiveRecord::Schema.define(version: 20160603050808) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "vagons", force: :cascade do |t|
+    t.string   "vagon_type"
+    t.integer  "up"
+    t.integer  "down"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "train_id"
   end
 
 end
