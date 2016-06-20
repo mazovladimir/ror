@@ -1,3 +1,3 @@
 class Sv < Vagon
-  validates :down, presence: :true
+  validates :bottom_seats, presence: :true
 end

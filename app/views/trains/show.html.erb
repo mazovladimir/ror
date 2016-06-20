@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Название поезда:</strong>
   <%= @train.title %>
 </p>
 
 <p>
-  <strong>On the station:</strong>
+  <strong>Находится на станции:</strong>
   <% if @train.current_station.present? %>
     <%= @train.current_station.title %>
   <% else %>
@@ -15,11 +15,11 @@
 </p>
 
 <p>
-  <strong>On the route:</strong>
+  <strong>Входит в маршрут:</strong>
   <% if @train.route.present? %>
     <%= @train.route.title %>
   <% else %>
-    Not set
+    Не задан
   <% end %>
 </p>
 
@@ -33,8 +33,8 @@
 </p>
 
 <p>
-  <%= link_to "Add Vagon", new_train_vagon_path(@train) %>
+  <%= link_to "Добавить вагон", new_train_vagon_path(@train) %>
 </p>
 
-<%= link_to 'Edit', edit_train_path(@train) %> |
-<%= link_to 'Back', trains_path %>
+<%= link_to 'Редактировать', edit_train_path(@train) %> |
+<%= link_to 'Назад', trains_path %>

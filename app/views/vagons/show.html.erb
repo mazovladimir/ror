@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Тип вагона:</strong>
   <%= @vagon.vagon_type %>
 </p>
 
 <p>
-  <strong>Connected to Train:</strong>
+  <strong>Подсоединен к поезду:</strong>
   <% if @vagon.train.present? %>
     <%= @vagon.train.title %>
   <% else %>

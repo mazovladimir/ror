@@ -2,27 +2,27 @@
 
 <%= form_for [@train, @vagon] do |f| %>
     <div class="field">
-      <%= f.label :vagon_type, "Vagon Type" %>
-      <%= f.collection_select :train_id, Vagon.all, :id, :vagon_type %>
+      <%= f.label :vagon_type, "Тип вагона" %>
+      <%= f.collection_select :vagon_type, Carriage.all, :id, :mytype %>
     </div><br>
 
     <div class="field">
-      <%= f.label :top_seats %><br>
+      <%= f.label :top_seats, "Верхние места" %><br>
       <%= f.number_field :top_seats %>
     </div>
 
     <div class="field">
-      <%= f.label :bottom_seats %><br>
+      <%= f.label :bottom_seats, "Нижние места" %><br>
       <%= f.number_field :bottom_seats %>
     </div>
 
     <div class="field">
-      <%= f.label :side_top_seats %><br>
+      <%= f.label :side_top_seats, "Боковые верхние места" %><br>
       <%= f.number_field :side_top_seats %>
     </div>
 
     <div class="field">
-      <%= f.label :side_bottom_seats %><br>
+      <%= f.label :side_bottom_seats, "Боковые нижние места" %><br>
       <%= f.number_field :side_bottom_seats %>
     </div>
 

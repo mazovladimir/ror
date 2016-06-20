@@ -1,5 +1,5 @@
 class CarriagesController < ApplicationController
-  before_action :set_train
+  before_action :set_train, only: [ :show, :create  ]
 
   def new
     @carriage = Carriage.new
@@ -10,7 +10,7 @@ class CarriagesController < ApplicationController
   end
 
   def create
-    @carriage = @train.carriages.new(carriage_params)
+    @carriage = Vagon.create(carriage_params)
 
     if @carriage.save
       redirect_to @train
@@ -26,6 +26,6 @@ class CarriagesController < ApplicationController
   end
 
   def carriage_params
-    params.require(:carriage).permit(:number, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats)
+    params.require(:carriage).permit(:mytype)
   end
 end
