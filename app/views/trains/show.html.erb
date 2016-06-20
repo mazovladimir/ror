@@ -33,7 +33,9 @@
 </p>
 
 <p>
-  <%= link_to "Добавить вагон", new_train_vagon_path(@train) %>
+  <%= link_to "Добавить вагон", new_train_vagon_path(@train) %> |
+  <%= link_to "Сортировать по порядку", new_train_vagon_path(@train) %> |
+  <%= link_to "Сортировать в обратном порядке", new_train_vagon_path(@train) %>
 </p>
 
 <%= link_to 'Редактировать', edit_train_path(@train) %> |
