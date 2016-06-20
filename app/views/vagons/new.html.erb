@@ -2,6 +2,11 @@
 
 <%= form_for [@train, @vagon] do |f| %>
     <div class="field">
+      <%= f.label :vagon_type, "Vagon Type" %>
+      <%= f.collection_select :train_id, Vagon.all, :id, :vagon_type %>
+    </div><br>
+
+    <div class="field">
       <%= f.label :top_seats %><br>
       <%= f.number_field :top_seats %>
     </div>
