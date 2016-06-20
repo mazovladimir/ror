@@ -14,23 +14,26 @@
   <% end %>
 </p>
 
+<h1>Вагон №<%= @vagon.number %></h1>
+
 <p>
-  <strong>Count of Places UP:</strong>
-  <% if @vagon.up.present? %>
-    <%= @vagon.up %>
-  <% else %>
-    Not set
-  <% end %>
+  Поезд: <%= @vagon.train.number %>
 </p>
 
 <p>
-  <strong>Count of Places DOWN:</strong>
-  <% if @vagon.down.present? %>
-    <%= @vagon.down %>
-  <% else %>
-    Not set
-  <% end %>
+  Верхних сидений: <%= @vagon.top_seats %>
 </p>
 
-<%= link_to 'Edit', edit_vagon_path(@vagon) %> |
-<%= link_to 'Back', vagons_path %>
+<p>
+  Нижних сидений: <%= @vagon.bottom_seats %>
+</p>
+
+<p>
+  Врехних боковых сидений: <%= @vagon.side_top_seats %>
+</p>
+
+<p>
+  Нижних боковых сидений: <%= @vagon.side_bottom_seats %>
+</p>
+
+<%= link_to "Назад", [@vagon.train] %>

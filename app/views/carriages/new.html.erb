@@ -1,4 +1,10 @@
-<%= form_for [@train, @vagon] do |f| %>
+<h1>New Vagon</h1>
+
+<%= form_for [@train, @carriage] do |f| %>
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.text_field :number %>
+  </div>
 
   <div class="field">
     <%= f.label :top_seats %><br>

@@ -24,36 +24,16 @@
 </p>
 
 <p>
-  <strong>Has Vagons:</strong>
-  <% if @train.vagons.present? %>
-    <br>
-    Cupe:
-    <ul>
-    <li>
-    Count - 
-    <%= @cupecount %>
-    UP Places - 
-    <%= @upcupe %>
-    DOWN Places - 
-    <%= @downcupe %>
-    </li>
-    </ul>
-            
+  <strong>Вагоны</strong>
+  <ul>
+    <% @train.vagons.each do |car| %>
+        <li><%= link_to "Вагон №#{car.number}", car %></li>
+    <% end %>
+  </ul>
+</p>
 
-    Plackart:
-    <ul>
-    <li>
-    Count:
-    <%= @plackartcount %>
-    UP Places -
-    <%= @upplackart %>
-    DOWN Places -
-    <%= @downplackart %>
-    </li>
-    </ul>
-  <% else %>
-    Not set
-  <% end %>
+<p>
+  <%= link_to "Add Vagon", new_train_vagon_path(@train) %>
 </p>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
