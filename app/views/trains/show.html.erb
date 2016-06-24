@@ -26,8 +26,14 @@
 <p>
   <strong>Вагоны</strong>
   <ul>
-    <% @train.vagons.each do |car| %>
+    <% if @train.sorting? %>
+      <% @train.vagons.order(number: :asc).each do |car| %>
         <li><%= link_to "Вагон №#{car.number}", car %></li>
+      <% end %>
+    <% else %>
+      <% @train.vagons.order(number: :desc).each do |car| %>
+        <li><%= link_to "Вагон №#{car.number}", car %></li>
+      <% end %>
     <% end %>
   </ul>
 </p>

@@ -2,8 +2,8 @@ class VagonsController < ApplicationController
   before_action :set_train, only: [:new, :create]
 
   def new
-    @vagon = Vagon.new
     @my_vagons = Vagon.show_vagons
+    @vagon = Vagon.new
   end
 
   def show
