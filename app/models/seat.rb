@@ -1,3 +1,3 @@
 class Seat < Vagon
-  validates :seat_places, presence: :true
+  validates :bottom_seats, presence: :true
 end

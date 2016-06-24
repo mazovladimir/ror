@@ -2,7 +2,7 @@
 
 <p>
   <strong>Тип вагона:</strong>
-  <%= @vagon.vagon_type %>
+  <%= @vagon.type %>
 </p>
 
 <p>
@@ -16,20 +16,33 @@
 
 <h1>Вагон №<%= @vagon.number %></h1>
 
+<% if (@vagon.type == 'Cupe') || (@vagon.type == 'Plackart') %>
+
 <p>
   Верхних сидений: <%= @vagon.top_seats %>
 </p>
+
+<% end %>
+
+<% if (@vagon.type == 'Cupe') || (@vagon.type == 'Sv') || (@vagon.type == 'Seat') %>
 
 <p>
   Нижних сидений: <%= @vagon.bottom_seats %>
 </p>
 
+<% end %>
+
+<% if (@vagon.type == 'Plackart') %>
+
 <p>
   Врехних боковых сидений: <%= @vagon.side_top_seats %>
 </p>
 
+
 <p>
   Нижних боковых сидений: <%= @vagon.side_bottom_seats %>
 </p>
+
+<% end %>
 
 <%= link_to "Назад", [@vagon.train] %>

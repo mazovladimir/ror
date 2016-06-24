@@ -1,9 +1,11 @@
 <h1>Новый вагон</h1>
 
-<%= form_for [@train, @vagon] do |f| %>
+<%= render 'common/errors', resource: @vagon %>
+
+<%= form_for [@train, @vagon], url: train_vagons_path do |f| %>
     <div class="field">
-      <%= f.label :vagon_type, "Тип вагона" %>
-      <%= select("vagon", "vagon_type", Carriage.all.collect {|p| [ p.mytype, p.id ] }, {prompt: 'Выберите вагон'}) %>
+      <%= f.label :type, "Тип вагона" %>
+      <%= select("vagon", "type", @my_vagons.each {|p| [ p ] }, { include_blank: true }) %>
     </div> <br>
 
     <div class="field">

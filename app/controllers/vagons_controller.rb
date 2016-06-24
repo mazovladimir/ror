@@ -3,6 +3,7 @@ class VagonsController < ApplicationController
 
   def new
     @vagon = Vagon.new
+    @my_vagons = Vagon.show_vagons
   end
 
   def show
@@ -10,6 +11,7 @@ class VagonsController < ApplicationController
   end
 
   def create
+    @my_vagons = Vagon.show_vagons
     @vagon = @train.vagons.new(vagon_params)
 
     if @vagon.save
@@ -26,6 +28,6 @@ class VagonsController < ApplicationController
   end
 
   def vagon_params
-    params.require(:vagon).permit(:number, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats)
+    params.require(:vagon).permit(:type, :number, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats)
   end
 end

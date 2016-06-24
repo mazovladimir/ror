@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
+
   resources :trains do
-    resources :vagons, shallow: true
+    resources :vagons
   end
+
   resources :routes
   resources :railway_stations do
     patch :update_position, on: :member
   end
-  #resources :vagons
+
+  resources :cupe, :controller=>'vagons'
+  resources :seat, :controller=>'vagons'
+  resources :sv, :controller=>'vagons'
+  resources :plackart, :controller=>'vagons'
+
   get 'welcome/index'
   
   root 'welcome#index'

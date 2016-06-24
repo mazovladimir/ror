@@ -4,10 +4,14 @@ class Vagon < ActiveRecord::Base
 
   before_validation :set_number
 
+  def self.show_vagons
+    my_vagons = ['Cupe',' Plackart', 'Sv', 'Seat']
+  end
+
   private
 
   def set_number
-    self.number = Random.rand(0...10)
+    self.number = Vagon.maximum('number') + 1
   end
 
 end
