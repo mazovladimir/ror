@@ -11,7 +11,10 @@ class Vagon < ActiveRecord::Base
   private
 
   def set_number
-    self.number = Vagon.maximum('number') + 1
+    vagon_count = []
+    train.each do |vagon|
+      vagon_count << vagon.number
+    end
+    self.number = vagon_count.max + 1
   end
-
 end

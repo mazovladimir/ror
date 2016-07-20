@@ -5,6 +5,7 @@ class RoutesController < ApplicationController
   end
  
   def show
+    @my_routes = Route.show_trains
   end
  
   def new
@@ -44,6 +45,6 @@ class RoutesController < ApplicationController
   end
 
   def route_params
-    params.require(:route).permit(:title, :text)
+    params.require(:route).permit(:title, :text, :railway_station_ids, :train_ids)
   end
 end

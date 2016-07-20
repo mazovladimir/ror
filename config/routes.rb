@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     patch :update_position, on: :member
   end
 
+  resources :tickets, only: [:create, :show]
+  resource :search, only: [:new, :show, :edit, :create]
+
   resources :cupe, :controller=>'vagons'
   resources :seat, :controller=>'vagons'
   resources :sv, :controller=>'vagons'
