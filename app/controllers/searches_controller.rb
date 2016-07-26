@@ -1,10 +1,10 @@
 class SearchesController < ApplicationController
-  def show
-    @routes = Search.show_trains
+  def new
     @stations = RailwayStation.all
   end
 
-  def create
-    redirect_to search_path
+  def show
+    @stations = RailwayStation.all
+    @routes = Search.show_trains(params[:start_station])
   end
 end

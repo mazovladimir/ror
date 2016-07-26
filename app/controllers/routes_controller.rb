@@ -5,7 +5,6 @@ class RoutesController < ApplicationController
   end
  
   def show
-    @my_routes = Route.show_trains
   end
  
   def new

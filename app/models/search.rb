@@ -1,11 +1,10 @@
 class Search < ActiveRecord::Base
-  def self.show_trains
-    Route.find_each do |route|
-      @route = route.railway_stations
-      @route.each do |station|
-        station.title
+  def self.show_trains(start_station)
+    route1 = RailwayStation.find(start_station).routes.all
+    route1.each do |route1|
+      route1.trains.to_a.each do |train|
+        return train.title
       end
     end
   end
 end
-
