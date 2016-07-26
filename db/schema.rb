@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160717155339) do
+ActiveRecord::Schema.define(version: 20160726131433) do
 
   create_table "carriages", force: :cascade do |t|
     t.string   "mytype"
@@ -40,20 +40,8 @@ ActiveRecord::Schema.define(version: 20160717155339) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tickets", force: :cascade do |t|
-    t.string   "number"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.integer  "user_id"
-    t.integer  "train_id"
-    t.integer  "first_station_id"
-    t.integer  "last_station_id"
-    t.integer  "start_station_id"
-    t.integer  "end_station_id"
-  end
-
-  add_index "tickets", ["end_station_id"], name: "index_tickets_on_end_station_id"
-  add_index "tickets", ["start_station_id"], name: "index_tickets_on_start_station_id"
+# Could not dump table "tickets" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "trains", force: :cascade do |t|
     t.string   "title"
