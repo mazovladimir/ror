@@ -5,6 +5,6 @@ class SearchesController < ApplicationController
 
   def show
     @stations = RailwayStation.all
-    @routes = Search.show_trains(params[:start_station])
+    @mytrains = Search.show_trains(params[:start_station], params[:end_station])
   end
 end

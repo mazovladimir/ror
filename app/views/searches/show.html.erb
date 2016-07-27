@@ -9,6 +9,10 @@
 </div>
 
 <p>
-  <%= @routes %>
-  <%= link_to 'Купить билет', new_ticket_path %>
+  <% @mytrains.each do |mytrain| %>
+    <p>
+    <%= mytrain %>
+    <%= link_to 'Купить билет', new_ticket_path %>
+    <p>
+  <% end %>
 </p>
