@@ -5,14 +5,11 @@
         <%= select_tag :start_station, options_from_collection_for_select(@stations, :id, :title), class: 'form-control' %>
         <%= select_tag :end_station, options_from_collection_for_select(@stations, :id, :title), class: 'form-control' %>
         <%= submit_tag "Найти", class: 'btn btn-primary find' %>
+
+  <p> <% @mytrains.each do |mytrain| %> </p>
+    <%= mytrain.title %>
+    <%= link_to 'Купить билет', new_ticket_path(first_station: params[:start_station], last_station: params[:end_station]) %>
+  <% end %>
+
   <% end %>
 </div>
-
-<p>
-  <% @mytrains.each do |mytrain| %>
-    <p>
-    <%= mytrain %>
-    <%= link_to 'Купить билет', new_ticket_path %>
-    <p>
-  <% end %>
-</p>

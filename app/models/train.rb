@@ -49,17 +49,17 @@ class Train < ActiveRecord::Base
   return downplackart
   end
 
-  def ordered_vagons
-    if sorting?
-      vagons.order(number: :asc).each do |car|
-        link_to "Вагон №#{car.number}", car 
-      end
-    else
-      vagons.order(number: :desc).each do |car|
-        link_to "Вагон №#{car.number}", car
-      end
-    end
-  end
+  #def ordered_vagons
+  #  if sorting?
+  #    vagons.order(number: :asc).each do |car|
+  #      link_to "Вагон №#{car.number}", car 
+  #    end
+  #  else
+  #    vagons.order(number: :desc).each do |car|
+  #      link_to "Вагон №#{car.number}", car
+  #    end
+  #  end
+  #end
 
   scope :asc_order, -> { order(number: :asc) }
   scope :desc_order, -> { order(number: :desc) }

@@ -17,12 +17,12 @@
   </div>
 
   <div class="field"><br>
-    <%= f.label :password, "Паспорт" %>
-    <%= f.text_field :password %>
+    <%= f.label :passport, "Паспорт" %>
+    <%= f.text_field :passport %>
   </div>
+
 
   <div class="actions"><br>
     <%= f.submit "#{@ticket.new_record? ? 'Создать' : 'Изменить' }" %>
   </div>
 <% end %>
-

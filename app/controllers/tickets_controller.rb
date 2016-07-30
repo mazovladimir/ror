@@ -9,6 +9,8 @@ class TicketsController < ApplicationController
  
   def new
     @ticket = Ticket.new
+    #@ticket.first_station = Ticket.result_start(params[:first_station])
+    #@ticket.last_station = Ticket.result_end(params[:last_station])
   end
  
   def edit
@@ -16,6 +18,8 @@ class TicketsController < ApplicationController
  
   def create
     @ticket = Ticket.new(ticket_params)
+    @ticket.first_station = Ticket.result_start(params[:first_station])
+    @ticket.last_station = Ticket.result_end(params[:last_station])
  
     if @ticket.save
       redirect_to @ticket
@@ -44,6 +48,6 @@ class TicketsController < ApplicationController
   end
 
   def ticket_params
-    params.require(:ticket).permit(:title, :text, :name, :surname, :middlename, :password)
+    params.require(:ticket).permit(:title, :text, :name, :surname, :middlename, :passport)
   end
 end
