@@ -9,8 +9,8 @@ class TicketsController < ApplicationController
  
   def new
     @ticket = Ticket.new
-    @ticket.first_station = Ticket.result_start(params[:first_station])
-    @ticket.last_station = Ticket.result_end(params[:last_station])
+    @ticket.first_station = RailwayStation.find(params[:first_station_id])
+    @ticket.last_station = RailwayStation.find(params[:last_station_id])
   end
  
   def edit
@@ -18,7 +18,6 @@ class TicketsController < ApplicationController
  
   def create
     @ticket = Ticket.new(ticket_params)
-    
  
     if @ticket.save
       redirect_to @ticket
@@ -47,6 +46,6 @@ class TicketsController < ApplicationController
   end
 
   def ticket_params
-    params.require(:ticket).permit(:title, :text, :name, :surname, :middlename, :passport, :start, :end)
+    params.require(:ticket).permit(:title, :text, :name, :surname, :middlename, :passport, :first_station_id, :last_station_id)
   end
 end

@@ -8,7 +8,7 @@
 
   <p> <% @mytrains.each do |mytrain| %> </p>
     <%= mytrain.title %>
-    <%= link_to 'Купить билет', new_ticket_path(first_station: params[:start_station], last_station: params[:end_station]) %>
+    <%= link_to 'Купить билет', new_ticket_path(first_station_id: params[:start_station], last_station_id: params[:end_station]) %>
   <% end %>
 
   <% end %>

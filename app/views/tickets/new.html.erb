@@ -21,8 +21,8 @@
     <%= f.text_field :passport %>
   </div>
 
-  <%= f.hidden_field :start, :value => @ticket.first_station.title %>
-  <%= f.hidden_field :end, :value => @ticket.last_station.title %>
+  <%= f.hidden_field :first_station_id, :value => @ticket.first_station.id %>
+  <%= f.hidden_field :last_station_id, :value => @ticket.last_station.id %>
 
 
   <div class="actions"><br>

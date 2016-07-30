@@ -3,5 +3,5 @@
 <p> Фамилия:<%= @ticket.surname %></p>
 <p> Отчество:<%= @ticket.middlename %></p>
 <p> Паспорт:<%= @ticket.passport %></p>
-<p> Откуда:<%= @ticket.start %></p>
-<p> Куда:<%= @ticket.end %></p>
+<p> Откуда:<%= @ticket.first_station.title %></p>
+<p> Куда:<%= @ticket.last_station.title %></p>
