@@ -1,21 +1,27 @@
 Rails.application.routes.draw do
 
-  resources :trains do
-    resources :vagons
-  end
-
-  resources :routes
-  resources :railway_stations do
-    patch :update_position, on: :member
-  end
+  devise_for :users
 
   resources :tickets, only: [:new, :create, :show]
   resource :search, only: [:new, :show, :edit, :create]
 
-  resources :cupe, :controller=>'vagons'
-  resources :seat, :controller=>'vagons'
-  resources :sv, :controller=>'vagons'
-  resources :plackart, :controller=>'vagons'
+
+  namespace :admin do 
+    resources :trains do
+      resources :vagons
+    end
+
+    resources :railway_stations do
+      patch :update_position, on: :member
+    end
+
+    resources :routes
+    resources :tickets
+
+    resources :cupe, :controller=>'vagons'
+    resources :seat, :controller=>'vagons'
+    resources :sv, :controller=>'vagons'
+  end
 
   get 'welcome/index'
   
