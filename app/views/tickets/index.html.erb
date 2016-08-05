@@ -1,0 +1,16 @@
+<h1>Список билетов</h1>
+<table>
+  <tr>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @tickets.each do |ticket| %>
+    <tr>
+      <td><%= ticket.number %></td>
+      <td><%= link_to 'Показать', ticket_path(ticket) %></td>
+      <td><%= link_to 'Удалить', ticket_path(ticket),
+              method: :delete,
+              data: { confirm: 'Вы уверены?' } %></td>
+    </tr>
+  <% end %>
+</table>

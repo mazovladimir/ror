@@ -24,7 +24,7 @@ class Admin::TrainsController < Admin::BaseController
   def create
     @train = Train.new(train_params)
       if @train.save
-        redirect_to @train
+        redirect_to [:admin, @train]
       else
         render :new
       end
@@ -32,7 +32,7 @@ class Admin::TrainsController < Admin::BaseController
 
   def update
       if @train.update(train_params)
-        redirect_to @train
+        redirect_to [:admin, @train]
       else
         render :edit
       end
@@ -40,7 +40,7 @@ class Admin::TrainsController < Admin::BaseController
 
   def destroy
     @train.destroy
-    redirect_to trains_path
+    redirect_to admin_trains_path
   end
 
   private

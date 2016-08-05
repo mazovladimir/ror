@@ -1,6 +1,6 @@
 <tr>
         <td><%= vagon.vagon_type %></td>
-        <td><%= link_to 'Show', vagon %></td>
-        <td><%= link_to 'Edit', edit_vagon_path(vagon) %></td>
-        <td><%= link_to 'Destroy', vagon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [:admin, vagon] %></td>
+        <td><%= link_to 'Edit', edit_admin_vagon_path(vagon) %></td>
+        <td><%= link_to 'Destroy', [:admin, vagon], method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>

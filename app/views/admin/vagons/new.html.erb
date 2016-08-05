@@ -2,7 +2,7 @@
 
 <%= render 'common/errors', resource: @vagon %>
 
-<%= form_for [@train, @vagon], url: train_vagons_path do |f| %>
+<%= form_for [:admin, @train, @vagon], url: admin_train_vagons_path do |f| %>
     <div class="field">
       <%= f.label :type, "Тип вагона" %>
       <%= select("vagon", "type", @my_vagons.each {|p| [ p ] }, { include_blank: true }) %>

@@ -15,7 +15,7 @@ class Admin::VagonsController < Admin::BaseController
     @vagon = @train.vagons.new(vagon_params)
 
     if @vagon.save
-      redirect_to @train
+      redirect_to [:admin, @train]
     else
       render :new
     end

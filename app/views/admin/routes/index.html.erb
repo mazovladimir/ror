@@ -8,9 +8,9 @@
   <% @routes.each do |route| %>
     <tr>
       <td><%= route.title %></td>
-      <td><%= link_to 'Показать', route_path(route) %></td>
-      <td><%= link_to 'Редактировать', edit_route_path(route) %></td>
-      <td><%= link_to 'Удалить', route_path(route),
+      <td><%= link_to 'Показать', admin_route_path(route) %></td>
+      <td><%= link_to 'Редактировать', edit_admin_route_path(route) %></td>
+      <td><%= link_to 'Удалить', admin_route_path(route),
               method: :delete,
               data: { confirm: 'Вы уверены?' } %></td>
     </tr>
@@ -18,7 +18,7 @@
 </table>
 
 <p>
-<%= link_to 'Новый маршрут', new_route_path %>
-<%= link_to 'Перейти к станциям', railway_stations_path %>
-<%= link_to 'Перейти к поездам', trains_path %>
+<%= link_to 'Новый маршрут', new_admin_route_path %>
+<%= link_to 'Перейти к станциям', admin_railway_stations_path %>
+<%= link_to 'Перейти к поездам', admin_trains_path %>
 </p>

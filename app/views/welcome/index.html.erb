@@ -1,6 +1,10 @@
 <h1>Hello Rails</h1>
 
-<%= link_to "Список станций", admin_railway_stations_path %>
-<%= link_to "Список поездов", admin_trains_path %>
-<%= link_to "Список маршрутов", admin_routes_path %>
+<% if user_signed_in? %>
+  <%= link_to "Список станций", admin_railway_stations_path if current_user.admin? %>
+  <%= link_to "Список поездов", admin_trains_path if current_user.admin? %>
+  <%= link_to "Список маршрутов", admin_routes_path if current_user.admin? %>
+<% end %>
+
 <%= link_to "Поиск", new_search_path %>
+<%= link_to "Билеты", tickets_path %>

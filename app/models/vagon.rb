@@ -11,10 +11,7 @@ class Vagon < ActiveRecord::Base
   private
 
   def set_number
-    if train.vagons.new_record?
-      self.number = 1 
-    else
-      self.number = train.vagons.maximum(:number) + 1
-    end
+    max_number = train.vagons.maximum(:number) || 0
+    self.number = max_number + 1
   end
 end
