@@ -5,6 +5,7 @@
   </tr>
 
   <% @tickets.each do |ticket| %>
+    <% if ticket.user == current_user %>
     <tr>
       <td><%= ticket.number %></td>
       <td><%= link_to 'Показать', ticket_path(ticket) %></td>
@@ -12,5 +13,6 @@
               method: :delete,
               data: { confirm: 'Вы уверены?' } %></td>
     </tr>
+    <% end %>
   <% end %>
 </table>
