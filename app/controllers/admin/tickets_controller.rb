@@ -7,23 +7,7 @@ class Admin::TicketsController < Admin::BaseController
   def show
   end
  
-  def new
-    @ticket = Ticket.new
-    @ticket.first_station = RailwayStation.find(params[:first_station_id])
-    @ticket.last_station = RailwayStation.find(params[:last_station_id])
-  end
- 
   def edit
-  end
- 
-  def create
-    @ticket = Ticket.new(ticket_params)
- 
-    if @ticket.save
-      redirect_to @ticket
-    else
-      render 'new'
-    end
   end
  
   def update
