@@ -1,0 +1,51 @@
+<p>
+  <strong>Title:</strong>
+  <%= @route.title %>
+</p>
+
+<p>
+  <strong>Trains:</strong>
+  <% if @route.trains.exists? %>
+    <% @route.train_ids.each do |id| %>
+      <li>
+      <%= @route.trains.find(id).title %>
+      </li>
+    <% end %>
+  <% else %>
+    No Trains Found
+  <% end %>
+</p>
+
+<p>
+  <strong>Stations:</strong>
+  <% if @route.railway_stations.empty? %>
+    No Stations
+  <% else %>
+    <table>
+      <thead>
+      <tr>
+        <td width="100px">Name</td>
+        <td>Position</td>
+      </tr>
+      </thead>
+      <tbody>
+      <% @route.railway_stations.ordered.each do |station| %>
+        <tr>
+          <td><%= station.title %></td>
+          <td>
+            <%= form_tag update_position_admin_railway_station_path(station), method: :patch do %>
+              <%= number_field_tag :position, station.position_in(@route) %>
+              <%= hidden_field_tag :route_id, @route.id %>
+              <%= submit_tag "Change" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</p>
+
+ 
+<%= link_to 'Edit', edit_admin_route_path(@route) %> |
+<%= link_to 'Back', admin_routes_path %>

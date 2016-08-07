@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @railway_station.title %>
+</p>
+
+<% if @railway_station.routes.empty? %>
+  <p>No route for current station</p>
+<% else %>
+  <p>Next routes include station</p>
+  <ul>
+    <% @railway_station.routes.each do |route|%>
+      <li><%= route.title %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to 'Редактировать', edit_admin_railway_station_path(@railway_station) %> |
+<%= link_to 'Назад', admin_railway_stations_path %>

@@ -11,17 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607211310) do
+ActiveRecord::Schema.define(version: 20160807192150) do
+
+  create_table "carriages", force: :cascade do |t|
+    t.string   "mytype"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "railway_stations", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "timereceive"
+    t.string   "timesend"
   end
 
   create_table "railway_stations_routes", force: :cascade do |t|
     t.integer "railway_station_id"
     t.integer "route_id"
+    t.integer "order"
+    t.integer "position"
   end
 
   create_table "routes", force: :cascade do |t|
@@ -34,10 +44,16 @@ ActiveRecord::Schema.define(version: 20160607211310) do
     t.string   "number"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "name"
+    t.string   "surname"
+    t.string   "middlename"
+    t.integer  "passport"
     t.integer  "user_id"
     t.integer  "train_id"
     t.integer  "first_station_id"
     t.integer  "last_station_id"
+    t.string   "start"
+    t.string   "end"
   end
 
   create_table "trains", force: :cascade do |t|
@@ -46,18 +62,39 @@ ActiveRecord::Schema.define(version: 20160607211310) do
     t.datetime "updated_at",         null: false
     t.integer  "route_id"
     t.integer  "current_station_id"
+    t.boolean  "sorting"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.boolean  "admin",                  default: false
+    t.string   "myname"
+    t.string   "mysurname"
+    t.string   "ticket"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "vagons", force: :cascade do |t|
     t.string   "vagon_type"
-    t.integer  "up"
-    t.integer  "down"
+    t.integer  "top_seats"
+    t.integer  "number"
+    t.integer  "bottom_seats"
+    t.integer  "side_top_seats"
+    t.integer  "side_bottom_seats"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "train_id"

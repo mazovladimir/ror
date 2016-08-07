@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Список поездов</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <%= render @trains %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Новый поезд', new_admin_train_path %>
+<%= link_to 'Перейти к станциям', admin_railway_stations_path %>
+<%= link_to 'Перейти к маршрутам', admin_routes_path %>

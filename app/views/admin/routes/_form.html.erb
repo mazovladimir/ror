@@ -1,0 +1,34 @@
+<%= form_for [:admin, @route] do |f| %>
+ 
+  <% if @route.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@route.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @route.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.collection_select :train_ids, Train.all, :id, :title, {:multiple => true} %>
+  </p>
+
+  <p>
+    <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {:multiple => true} %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>

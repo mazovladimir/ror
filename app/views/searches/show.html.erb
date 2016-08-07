@@ -1,0 +1,15 @@
+<h1>Поиск билета</h1>
+
+<div class="row">
+  <%= form_tag search_path, method: "get", class: 'search_form' do %>
+        <%= select_tag :start_station, options_from_collection_for_select(@stations, :id, :title), class: 'form-control' %>
+        <%= select_tag :end_station, options_from_collection_for_select(@stations, :id, :title), class: 'form-control' %>
+        <%= submit_tag "Найти", class: 'btn btn-primary find' %>
+
+  <p> <% @mytrains.each do |mytrain| %> </p>
+    <%= mytrain.title %>
+    <%= link_to 'Купить билет', new_ticket_path(first_station_id: params[:start_station], last_station_id: params[:end_station]) %>
+  <% end %>
+
+  <% end %>
+</div>

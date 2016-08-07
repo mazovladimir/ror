@@ -1,9 +1,29 @@
 Rails.application.routes.draw do
-  resources :trains
-  resources :routes
-  resources :railway_stations
-  resources :vagons
-  resources :places
+
+  devise_for :users
+
+  resources :tickets
+  resource :search, only: [:new, :show, :edit, :create]
+
+
+  namespace :admin do 
+    root 'welcome#index'
+    resources :trains do
+      resources :vagons
+    end
+
+    resources :railway_stations do
+      patch :update_position, on: :member
+    end
+
+    resources :routes
+    resources :tickets
+
+    resources :cupe, :controller=>'vagons'
+    resources :seat, :controller=>'vagons'
+    resources :sv, :controller=>'vagons'
+  end
+
   get 'welcome/index'
   
   root 'welcome#index'

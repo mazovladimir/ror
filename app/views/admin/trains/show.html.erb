@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Название поезда:</strong>
+  <%= @train.title %>
+</p>
+
+<p>
+  <strong>Находится на станции:</strong>
+  <% if @train.current_station.present? %>
+    <%= @train.current_station.title %>
+  <% else %>
+    Not set
+  <% end %>
+</p>
+
+<p>
+  <strong>Входит в маршрут:</strong>
+  <% if @train.route.present? %>
+    <%= @train.route.title %>
+  <% else %>
+    Не задан
+  <% end %>
+</p>
+
+<p>
+  <strong>Вагоны</strong>
+  <ul>
+    <% if @train.sorting? %>
+      <% @train.vagons.order(number: :asc).each do |car| %>
+        <li><%= link_to "Вагон №#{car.number}", [:admin, car] %></li>
+      <% end %>
+    <% else %>
+      <% @train.vagons.order(number: :desc).each do |car| %>
+        <li><%= link_to "Вагон №#{car.number}", [:admin, car] %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <%= link_to "Добавить вагон", new_admin_train_vagon_path(@train) %> |
+</p>
+
+<%= link_to 'Редактировать', edit_admin_train_path(@train) %> |
+<%= link_to 'Назад', admin_trains_path %>
