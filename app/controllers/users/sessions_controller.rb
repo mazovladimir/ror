@@ -7,9 +7,10 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
+  def create
   #   super
-  # end
+    set_flash_message :notice, :signed_in, :user => current_user.myname if is_flashing_format?
+  end
 
   # DELETE /resource/sign_out
   # def destroy

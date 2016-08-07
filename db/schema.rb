@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805151519) do
+ActiveRecord::Schema.define(version: 20160807192150) do
 
   create_table "carriages", force: :cascade do |t|
     t.string   "mytype"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20160805151519) do
     t.boolean  "admin",                  default: false
     t.string   "myname"
     t.string   "mysurname"
+    t.string   "ticket"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

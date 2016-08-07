@@ -12,9 +12,6 @@
 <p class="alert"><%= alert %></p>
 
 <% if user_signed_in? %>
-  <p>
-  <%= "Hello #{current_user.myname}" %>
-  </p>
   <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
 <% else %>
   <%= link_to "Войти", new_user_session_path %> 
